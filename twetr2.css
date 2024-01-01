@@ -1,0 +1,41 @@
+body {
+font-family: sans-serif;
+}
+
+#container {
+width: 400px;
+margin: 0 auto;
+}
+
+#messages {
+height: 200px;
+overflow: auto;
+}
+
+#message {
+width: 300px;
+height: 30px;
+border: 1px solid #ccc;
+padding: 10px;
+}
+
+#send {
+background-color: #000;
+color: #fff;
+padding: 10px;
+border: none;
+cursor: pointer;
+}var messages = [];
+
+function addMessage(message) {
+messages.push(message);
+var div = document.createElement("div");
+div.innerHTML = message;
+document.getElementById("messages").appendChild(div);
+}
+
+document.getElementById("send").onclick = function() {
+var message = document.getElementById("message").value;
+addMessage(message);
+document.getElementById("message").value = "";
+};
